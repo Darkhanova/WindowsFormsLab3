@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+namespace WindowsFormsApp2
 {
     partial class Form1
     {
@@ -43,6 +43,7 @@
             this.result = new System.Windows.Forms.Label();
             this.divide = new System.Windows.Forms.Button();
             this.sokr = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,6 +61,8 @@
             this.chisl1.Name = "chisl1";
             this.chisl1.Size = new System.Drawing.Size(81, 26);
             this.chisl1.TabIndex = 1;
+            this.chisl1.TextChanged += new System.EventHandler(this.chisl1_TextChanged_1);
+            this.chisl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chisl1_KeyDown);
             // 
             // znam1
             // 
@@ -67,6 +70,8 @@
             this.znam1.Name = "znam1";
             this.znam1.Size = new System.Drawing.Size(81, 26);
             this.znam1.TabIndex = 2;
+            this.znam1.TextChanged += new System.EventHandler(this.znam1_TextChanged_1);
+            this.znam1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.znam1_KeyDown);
             // 
             // label2
             // 
@@ -92,6 +97,8 @@
             this.znam2.Name = "znam2";
             this.znam2.Size = new System.Drawing.Size(81, 26);
             this.znam2.TabIndex = 5;
+            this.znam2.TextChanged += new System.EventHandler(this.znam2_TextChanged_1);
+            this.znam2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.znam2_KeyDown);
             // 
             // chisl2
             // 
@@ -99,6 +106,8 @@
             this.chisl2.Name = "chisl2";
             this.chisl2.Size = new System.Drawing.Size(81, 26);
             this.chisl2.TabIndex = 4;
+            this.chisl2.TextChanged += new System.EventHandler(this.chisl2_TextChanged_1);
+            this.chisl2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chisl2_KeyDown);
             // 
             // sum
             // 
@@ -143,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(510, 39);
+            this.label4.Location = new System.Drawing.Point(504, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 11;
@@ -152,14 +161,14 @@
             // result
             // 
             this.result.AutoSize = true;
-            this.result.Location = new System.Drawing.Point(622, 40);
+            this.result.Location = new System.Drawing.Point(571, 40);
             this.result.Name = "result";
             this.result.Size = new System.Drawing.Size(0, 20);
             this.result.TabIndex = 12;
             // 
             // divide
             // 
-            this.divide.Location = new System.Drawing.Point(483, 142);
+            this.divide.Location = new System.Drawing.Point(35, 198);
             this.divide.Name = "divide";
             this.divide.Size = new System.Drawing.Size(99, 32);
             this.divide.TabIndex = 13;
@@ -169,7 +178,7 @@
             // 
             // sokr
             // 
-            this.sokr.Location = new System.Drawing.Point(604, 142);
+            this.sokr.Location = new System.Drawing.Point(181, 198);
             this.sokr.Name = "sokr";
             this.sokr.Size = new System.Drawing.Size(127, 32);
             this.sokr.TabIndex = 14;
@@ -177,11 +186,22 @@
             this.sokr.UseVisualStyleBackColor = true;
             this.sokr.Click += new System.EventHandler(this.sokr_Click);
             // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(353, 198);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(115, 32);
+            this.clear.TabIndex = 15;
+            this.clear.Text = "Очистить";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 212);
+            this.ClientSize = new System.Drawing.Size(812, 249);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.sokr);
             this.Controls.Add(this.divide);
             this.Controls.Add(this.result);
@@ -197,8 +217,9 @@
             this.Controls.Add(this.znam1);
             this.Controls.Add(this.chisl1);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Калькулятор ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +242,7 @@
         private System.Windows.Forms.Label result;
         private System.Windows.Forms.Button divide;
         private System.Windows.Forms.Button sokr;
+        private System.Windows.Forms.Button clear;
     }
 }
 
