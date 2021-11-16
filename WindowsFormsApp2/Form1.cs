@@ -12,21 +12,40 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+
+        public int znamone;
+        public int chislone;
+        public int znamtwo;
+        public int chisltwo;
+
         public Form1()
         {
             InitializeComponent();
         }
 
+        public void inputdrob()
+        {
+            try
+            {
+                znamone = Convert.ToInt32(this.znam1.Text);
+                chislone = Convert.ToInt32(this.chisl1.Text);
+                znamtwo = Convert.ToInt32(this.znam2.Text);
+                chisltwo = Convert.ToInt32(this.chisl2.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+        }
+
+
         private void sum_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int znamtwo = Convert.ToInt32(this.znam2.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
-            int chisltwo = Convert.ToInt32(this.chisl2.Text);
+            inputdrob();
             Drob drob1, drob2, drob3;
             if (chislone > znamone || chisltwo > znamtwo || znamone == 0 || znamtwo == 0 || chislone == znamone || chisltwo == znamtwo)
             {
-                result.Text = "Error! Fraction is improper";
+                result.Text = "Ошибка! Дробь неправильная";
                 return;
             }
             drob1 = new Drob(chislone, znamone);
@@ -37,14 +56,11 @@ namespace WindowsFormsApp2
 
         private void raz_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int znamtwo = Convert.ToInt32(this.znam2.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
-            int chisltwo = Convert.ToInt32(this.chisl2.Text);
+            inputdrob();
             Drob drob1, drob2, drob3;
             if (chislone > znamone || chisltwo > znamtwo || znamone == 0 || znamtwo == 0 || chislone == znamone || chisltwo == znamtwo)
             {
-                result.Text = "Error! Fraction is improper";
+                result.Text = "Ошибка! Дробь неправильная";
                 return;
             }
             drob1 = new Drob(chislone, znamone);
@@ -55,14 +71,11 @@ namespace WindowsFormsApp2
 
         private void multi_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int znamtwo = Convert.ToInt32(this.znam2.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
-            int chisltwo = Convert.ToInt32(this.chisl2.Text);
+            inputdrob();
             Drob drob1, drob2, drob3;
             if (chislone > znamone || chisltwo > znamtwo || znamone == 0 || znamtwo == 0 || chislone == znamone || chisltwo == znamtwo)
             {
-                result.Text = "Error! Fraction is improper";
+                result.Text = "Ошибка! Дробь неправильная";
                 return;
             }
             drob1 = new Drob(chislone, znamone);
@@ -73,14 +86,11 @@ namespace WindowsFormsApp2
 
         private void srav_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
-            int znamtwo = Convert.ToInt32(this.znam2.Text);
-            int chisltwo = Convert.ToInt32(this.chisl2.Text);
+            inputdrob();
             Drob drob1, drob2, drob3;
             if (chislone > znamone || chisltwo > znamtwo || znamone == 0 || znamtwo == 0 || chislone == znamone || chisltwo == znamtwo)
             {
-                result.Text = "Error! Fraction is improper";
+                result.Text = "Ошибка! Дробь неправильная";
                 return;
             }
             drob1 = new Drob(chislone, znamone);
@@ -91,14 +101,11 @@ namespace WindowsFormsApp2
 
         private void divide_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int znamtwo = Convert.ToInt32(this.znam2.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
-            int chisltwo = Convert.ToInt32(this.chisl2.Text);
+            inputdrob();
             Drob drob1, drob2, drob3;
             if (chislone > znamone || chisltwo > znamtwo || znamone == 0 || znamtwo == 0 || chislone == znamone || chisltwo == znamtwo)
             {
-                result.Text = "Error! Fraction is improper";
+                result.Text = "Ошибка! Дробь неправильная";
                 return;
             }
             drob1 = new Drob(chislone, znamone);
@@ -109,14 +116,14 @@ namespace WindowsFormsApp2
 
         private void sokr_Click(object sender, EventArgs e)
         {
-            int znamone = Convert.ToInt32(this.znam1.Text);
-            int chislone = Convert.ToInt32(this.chisl1.Text);
+            znamone = Convert.ToInt32(this.znam1.Text);
+            chislone = Convert.ToInt32(this.chisl1.Text);
             Drob drob1, drob2, drob3;
             if(result.Text.Length == 0)
             {
                 if (chislone > znamone || znamone == 0 || chislone == znamone)
                 {
-                    result.Text = "Error! Fraction is improper";
+                    result.Text = "Ошибка! Дробь неправильная";
                     return;
                 }
                 drob1 = new Drob(chislone, znamone);
@@ -137,10 +144,7 @@ namespace WindowsFormsApp2
             }
         }
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
         private void Control_KeyUp(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Return))
@@ -153,7 +157,7 @@ namespace WindowsFormsApp2
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(znam1.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Пожалуйста, введите только числа");
                 znam1.Text = znam1.Text.Remove(znam1.Text.Length - 1);
             }
         }
@@ -162,7 +166,7 @@ namespace WindowsFormsApp2
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(chisl2.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Пожалуйста, введите только числа");
                 chisl2.Text = chisl2.Text.Remove(chisl2.Text.Length - 1);
             }
         }
@@ -171,7 +175,7 @@ namespace WindowsFormsApp2
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(znam2.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Пожалуйста, введите только числа");
                 znam2.Text = znam2.Text.Remove(znam2.Text.Length - 1);
             }
         }
@@ -212,9 +216,18 @@ namespace WindowsFormsApp2
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(chisl1.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Пожалуйста, введите только числа");
                 chisl1.Text = chisl1.Text.Remove(chisl1.Text.Length - 1);
-            }
+            }  
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            chisl1.Clear();
+            chisl2.Clear();
+            znam1.Clear();
+            znam2.Clear();
+            result.ResetText();
         }
     }
 }
